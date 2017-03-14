@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "City Project.Plugins", "City Project.Plugins.csproj", "{D503EA5B-148A-0E7F-634E-BA3A52BC0DD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "City Project", "City Project.csproj", "{06C0C93A-CDA9-715F-4BC2-B4E0928A8BB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "City Project.Editor.Plugins", "City Project.Editor.Plugins.csproj", "{0CBA6B13-5F5A-DADC-24C5-6006361C0C96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D503EA5B-148A-0E7F-634E-BA3A52BC0DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D503EA5B-148A-0E7F-634E-BA3A52BC0DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D503EA5B-148A-0E7F-634E-BA3A52BC0DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D503EA5B-148A-0E7F-634E-BA3A52BC0DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C0C93A-CDA9-715F-4BC2-B4E0928A8BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C0C93A-CDA9-715F-4BC2-B4E0928A8BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C0C93A-CDA9-715F-4BC2-B4E0928A8BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C0C93A-CDA9-715F-4BC2-B4E0928A8BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CBA6B13-5F5A-DADC-24C5-6006361C0C96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CBA6B13-5F5A-DADC-24C5-6006361C0C96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CBA6B13-5F5A-DADC-24C5-6006361C0C96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CBA6B13-5F5A-DADC-24C5-6006361C0C96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
