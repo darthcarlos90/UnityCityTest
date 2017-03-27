@@ -43,6 +43,45 @@ public class HelicopterHandler: MonoBehaviour {
         }
     }
 
+    /**
+     * This peace of code represents the update calls of the physics engine.
+     * Since the physics engine is called on a different thread, and it's updates are different 
+     * (and some times independent of the graphics engine) physics calls need to be called on a separate method.
+     */
+    private void FixedUpdate()
+    {
+        Vector3 torqueValue = new Vector3();
+        Vector3 controlTorque = new Vector3(
+            Input.GetAxis("Vertical") * forwardRotorTorqueMultiplier,
+            1.0f, 
+            -Input.GetAxis("Horizontal2") * sidewayRotorTorqueMultiplier);
+
+        if (mainRotorActive)
+        {
+            torqueValue += (controlTorque * maxRotorForce * rotorVelocity);
+            
+            // Adds a force in the model space
+            rb.AddRelativeForce(Vector3.up * maxRotorForce * rotorVelocity);
+        }
+
+        // Transform lower case refers to the transform elements of the current object
+        // The Vector3.angle function measures the angle between its parameters
+        if (Vector3.Angle(Vector3.up, transform.up) < 80)
+        {
+            // Slerp is used to interpolate between the two values in the parameters
+            transform.rotation = Quaternion.Slerp(transform.rotation,
+                Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0),  // Euler function returns a rotation among certain axis
+                Time.deltaTime * rotorVelocity * 2);
+        }
+
+        if (tailRotorActive)
+        {
+            torqueValue -= (Vector3.up * maxTailRotorForce * tailRotorVelocity);
+            rb.AddRelativeTorque(torqueValue);
+        }
+
+    }
+
 
 
 }
