@@ -83,5 +83,50 @@ public class HelicopterHandler: MonoBehaviour {
     }
 
 
+    private void Update()
+    {
+        if (mainRotorActive)
+        {
+            mainRotor.transform.rotation = transform.rotation * Quaternion.Euler(270, rotorRotation, 0);
+        }
+
+        if (tailRotorActive)
+        {
+            tailRotor.transform.rotation = transform.rotation * Quaternion.Euler(0, 270, tailRotorRotation);
+        }
+
+        // frame rate independency with Time.deltatime
+        rotorRotation += maxRotorVelocity * rotorVelocity * Time.deltaTime;
+
+        tailRotorRotation += maxTailRotorVelocity * rotorVelocity * Time.deltaTime;
+
+        float hoverRotorVelocity = (rb.mass * Mathf.Abs(Physics.gravity.y) / maxRotorForce);
+        float hoverTailRotorVelocity = (maxRotorForce * rotorVelocity) / maxTailRotorForce;
+
+        if(Input.GetAxis("Vertical2") != 0.0)
+        {
+            rotorVelocity += Input.GetAxis("Vertical2") * 0.005f;
+        }
+        else
+        {
+            rotorVelocity = Mathf.Lerp(rotorVelocity, hoverRotorVelocity, Time.deltaTime * 5);
+        }
+
+        tailRotorVelocity = hoverTailRotorVelocity - Input.GetAxis("Horizontal") * 0.01f;
+
+        // clamping
+        if(rotorVelocity > 1.0)
+        {
+            rotorVelocity = 1.0f;
+        } 
+        else if(rotorVelocity < 0.0)
+        {
+            rotorVelocity = 0.0f;
+        }
+
+
+    }
+
+
 
 }
