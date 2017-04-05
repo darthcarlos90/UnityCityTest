@@ -112,7 +112,7 @@ public class HelicopterHandler: MonoBehaviour {
             rotorVelocity = Mathf.Lerp(rotorVelocity, hoverRotorVelocity, Time.deltaTime * 5);
         }
 
-        tailRotorVelocity = hoverTailRotorVelocity - Input.GetAxis("Horizontal") * 0.01f;
+        tailRotorVelocity = hoverTailRotorVelocity - Input.GetAxis("Horizontal") * 0.05f;
 
         // clamping
         if(rotorVelocity > 1.0)
